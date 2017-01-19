@@ -1,4 +1,4 @@
-package com.pepperoniapptemplate;
+package com.phoney;
 
 import android.app.Application;
 import android.util.Log;
