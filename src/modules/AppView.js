@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react';
-import {View, StyleSheet, ActivityIndicator} from 'react-native';
+import {View, StyleSheet, Text, ActivityIndicator} from 'react-native';
 // import NavigationViewContainer from './navigation/NavigationViewContainer';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
-import PhoneyListView from '../modules/list/ListView';
+// import PhoneyListView from '../modules/list/ListView';
 
 const AppView = React.createClass({
   propTypes: {
@@ -33,21 +33,37 @@ const AppView = React.createClass({
     if (!this.props.isReady) {
       return (
         <View style={{flex: 1}}>
-          <ActivityIndicator style={styles.centered}/>
+          <ActivityIndicator style={styles.centered} />
         </View>
       );
     }
 
     return (
-      <View style={{flex: 1}}>
-        <PhoneyListView />
-        {__DEV__ && <DeveloperMenu />}
+      <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleText}>
+            Phoney
+          </Text>
+          {__DEV__ && <DeveloperMenu />}
+        </View>
       </View>
     );
   }
 });
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  titleContainer: {
+    height: 45,
+    padding: 10,
+    backgroundColor: 'white'
+  },
+  titleText: {
+    fontSize: 19,
+    fontWeight: '500'
+  },
   centered: {
     flex: 1,
     alignSelf: 'center'
