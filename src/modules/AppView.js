@@ -1,12 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import { View, StyleSheet, Text, ActivityIndicator } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  ActivityIndicator
+} from 'react-native';
 // import NavigationViewContainer from './navigation/NavigationViewContainer';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
 import NavigationBar from 'react-native-navbar';
-// import PhoneyListView from '../modules/list/ListView';
+import PhoneyListView from '../modules/list/ListView';
 
 export default class AppView extends Component {
   static propTypes = {
@@ -17,7 +22,7 @@ export default class AppView extends Component {
   componentDidMount() {
     snapshotUtil.resetSnapshot()
       .then(snapshot => {
-        const {dispatch} = this.props;
+        const { dispatch } = this.props;
 
         if (snapshot) {
           dispatch(SessionStateActions.resetSessionStateFromSnapshot(snapshot));
@@ -44,7 +49,7 @@ export default class AppView extends Component {
   render() {
     if (!this.props.isReady) {
       return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <ActivityIndicator style={styles.centered} />
         </View>
       );
@@ -53,6 +58,7 @@ export default class AppView extends Component {
     return (
       <View style={styles.container}>
         {this.renderNav()}
+        <PhoneyListView />
         {__DEV__ && <DeveloperMenu />}
       </View>
     );

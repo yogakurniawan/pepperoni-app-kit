@@ -1,9 +1,9 @@
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './src/redux/store';
 import AppViewContainer from './src/modules/AppViewContainer';
 
 import React from 'react';
-import {AppRegistry} from 'react-native';
+import { AppRegistry } from 'react-native';
 
 const phoney = React.createClass({
 

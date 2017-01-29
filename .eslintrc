@@ -61,7 +61,7 @@
     "keyword-spacing": ["error", {before: true, after: true}],
     "space-before-blocks": [2, "always"],
     "space-before-function-paren": [2, "never"],
-    "object-curly-spacing": [2, "never"],
+    "object-curly-spacing": [2, "always"],
     "array-bracket-spacing": [2, "never"],
     "computed-property-spacing": [2, "never"],
     "space-in-parens": [2, "never"],
@@ -147,7 +147,7 @@
     "react/wrap-multilines": 1,
     "babel/generator-star-spacing": 1,
     "babel/new-cap": 0,
-    "babel/object-curly-spacing": [2, "never"],
+    "babel/object-curly-spacing": [2, "always"],
     "babel/object-shorthand": 1,
     "babel/arrow-parens": 0,
     "babel/no-await-in-loop": 1
